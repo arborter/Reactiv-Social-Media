@@ -1,8 +1,12 @@
-'use strict';
+
+
+
+'use strict'; 
+
 
 const e = React.createElement;
 
-class button extends React.Component {
+class Button extends React.Component {
   constructor(props) {
     super(props);
     this.state = { liked: false };
@@ -22,6 +26,56 @@ class button extends React.Component {
 }
 
 
+
+function f() {
+  return 'this is about me'
+}
+
+new class about {
+  render() {
+    return f;
+  }
+}
+
 const domContainer = document.querySelector('#button');
 const root = ReactDOM.createRoot(domContainer);
-root.render(e(button));
+root.render(e(Button));
+
+const domContainer2 = document.querySelector('#about');
+const root2 = ReactDOM.createRoot(domContainer2);
+root2.render(f(about));
+
+
+
+
+
+
+
+
+
+
+
+
+// Simple console log:
+class Info {
+  constructor(title, information){
+    this.title=title;
+    this.information=information;
+  }
+  present() {
+    console.log(this.title, this.information);
+  }
+}
+
+let title= new Info("Graffito:", "I made this so that people can feel alone together");
+title.present();
+
+
+export default function NewPost() {
+  return (
+    <label>
+      Write your post:
+      <textarea name="postContent" rows={4} cols={40} />
+    </label>
+  );
+}
